@@ -1,6 +1,6 @@
 {
   "name": "bitd-alternate-sheets",
-  "title": "Blades in the Dark Alternate Sheets",
+  "title": "Blades in the Dark Alternate Sheets Deepcuts Edition",
   "description": "",
   "version": "0.0.1",
   "library": "false",
@@ -12,9 +12,8 @@
   },
   "authors": [
     {
-      "name": "Justin Ross",
-      "url": "https://github.com/justinross",
-      "discord": "thsjstin#5654"
+      "name": "Declan Rhodes",
+      "url": "https://github.com/RussianHamster6"
     }
   ],
   "dependencies": [
@@ -27,13 +26,29 @@
   "conflicts": [],
   "flags": {
     "hotReload": {
-      "extensions": ["hbs", "css", "html"],
-      "paths": ["templates", "templates/parts", "langs", "styles", "images"]
+      "extensions": [
+        "hbs",
+        "css",
+        "html"
+      ],
+      "paths": [
+        "templates",
+        "templates/parts",
+        "langs",
+        "styles",
+        "images"
+      ]
     }
   },
-  "esmodules": ["/scripts/module.js"],
-  "scripts": ["scripts/lib/markdown-it.min.js"],
-  "styles": ["/styles/css/bitd-alt.css"],
+  "esmodules": [
+    "/scripts/module.js"
+  ],
+  "scripts": [
+    "scripts/lib/markdown-it.min.js"
+  ],
+  "styles": [
+    "/styles/css/bitd-alt.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -51,9 +66,9 @@
       "path": "languages/it.json"
     }
   ],
-  "url": "This is auto replaced",
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
+  "url": "https://github.com/RussianHamster6/foundry-bitd-alternate-sheets",
+  "manifest": "https://github.com/RussianHamster6/foundry-bitd-alternate-sheets/releases/download/Release/module.json",
+  "download": "https://github.com/RussianHamster6/foundry-bitd-alternate-sheets/archive/refs/tags/Release.zip",
   "media": [
     {
       "type": "icon",
