@@ -1,7 +1,7 @@
 import { BladesAlternateActorSheet } from "./blades-alternate-actor-sheet.js";
 import { queueUpdate } from "./lib/update-queue.js";
 
-export const MODULE_ID = "bitd-alternate-sheets";
+export const MODULE_ID = "bitd-alternate-sheets-deepcuts-edition";
 
 export class Utils {
   /**
@@ -231,11 +231,11 @@ export class Utils {
 
   static async getSourcedItemsByType(item_type) {
     const populateFromCompendia = game.settings.get(
-      "bitd-alternate-sheets",
+      "bitd-alternate-sheets-deepcuts-edition",
       "populateFromCompendia"
     );
     const populateFromWorld = game.settings.get(
-      "bitd-alternate-sheets",
+      "bitd-alternate-sheets-deepcuts-edition",
       "populateFromWorld"
     );
     let limited_items;
@@ -375,7 +375,7 @@ export class Utils {
     } else if (type == "item") {
       // let item = actor.items.find(item => item.id === id);
       let equipped_items = await actor.getFlag(
-        "bitd-alternate-sheets",
+        "bitd-alternate-sheets-deepcuts-edition",
         "equipped-items"
       );
       if (!equipped_items) {
@@ -410,7 +410,7 @@ export class Utils {
       //   equipped_items = [id];
       // }
       await actor.setFlag(
-        "bitd-alternate-sheets",
+        "bitd-alternate-sheets-deepcuts-edition",
         "equipped-items",
         equipped_items
       );
@@ -423,18 +423,18 @@ export class Utils {
       .map((item) => item._id);
     for (const character of listOfAllCharacterIds) {
       const showPronouns = game.settings.get(
-        "bitd-alternate-sheets",
+        "bitd-alternate-sheets-deepcuts-edition",
         "showPronounsInCharacterDirectory"
       );
       const showAliasInDirectory = game.actors
         .get(character)
-        .getFlag("bitd-alternate-sheets", "showAliasInDirectory");
+        .getFlag("bitd-alternate-sheets-deepcuts-edition", "showAliasInDirectory");
       let computedName = showAliasInDirectory
         ? game.actors.get(character).system.alias
         : game.actors.get(character).name;
       const pronouns = game.actors
         .get(character)
-        .getFlag("bitd-alternate-sheets", "pronouns");
+        .getFlag("bitd-alternate-sheets-deepcuts-edition", "pronouns");
       if (showPronouns && pronouns && pronouns !== "Pronouns") {
         computedName = `${computedName} (${pronouns})`;
       }
@@ -714,7 +714,7 @@ export class Utils {
             ability.system.purchased &&
             ability.system.class_default &&
             ability.system.class ===
-              (await Utils.getPlaybookName(actor.system.playbook))
+            (await Utils.getPlaybookName(actor.system.playbook))
           ) {
             ownedAbilities = true;
           }

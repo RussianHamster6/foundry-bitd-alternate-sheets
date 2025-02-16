@@ -1,5 +1,5 @@
 export const registerSystemSettings = function () {
-  game.settings.register("bitd-alternate-sheets", "populateFromCompendia", {
+  game.settings.register("bitd-alternate-sheets-deepcuts-edition", "populateFromCompendia", {
     name: "Load Compendium Objects",
     hint: "Include Compendium Playbooks, NPCs, Items, and Abilities When Auto-Populating Playbooks",
     scope: "world", // "world" = sync to db, "client" = local storage
@@ -11,7 +11,7 @@ export const registerSystemSettings = function () {
     },
   });
 
-  game.settings.register("bitd-alternate-sheets", "populateFromWorld", {
+  game.settings.register("bitd-alternate-sheets-deepcuts-edition", "populateFromWorld", {
     name: "Load World Objects",
     hint: "Include World (Custom) Playbooks, NPCs, Items, and Abilities When Auto-Populating Playbooks",
     scope: "world", // "world" = sync to db, "client" = local storage
@@ -24,7 +24,7 @@ export const registerSystemSettings = function () {
   });
 
   game.settings.register(
-    "bitd-alternate-sheets",
+    "bitd-alternate-sheets-deepcuts-edition",
     "showPronounsInCharacterDirectory",
     {
       name: "Include Character Pronouns in Directory",
