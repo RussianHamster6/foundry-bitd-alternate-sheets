@@ -53,7 +53,7 @@ export class BladesAlternateItemSheet extends ItemSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["blades-alt", "sheet", "item"],
-      template: "modules/bitd-alternate-sheets/templates/item-sheet.html",
+      template: "modules/bitd-alternate-sheets-deepcuts-edition/templates/item-sheet.html",
       width: 400,
       height: 600,
       // tabs: [{navSelector: ".tabs", contentSelector: ".tab-content", initial: "playbook"}]

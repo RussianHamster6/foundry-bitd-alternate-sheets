@@ -64,7 +64,7 @@ export async function registerHooks() {
     });
     for (let index = 0; index < characters.length; index++) {
       const character = characters[index];
-      let notes = await character.getFlag("bitd-alternate-sheets", "notes");
+      let notes = await character.getFlag("bitd-alternate-sheets-deepcuts-edition", "notes");
       notes = notes ? notes : "";
       if (notes.includes(sheet.actor._id)) {
         character.sheet.render(false);

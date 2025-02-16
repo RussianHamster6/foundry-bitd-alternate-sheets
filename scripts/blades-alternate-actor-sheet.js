@@ -21,7 +21,7 @@ export class BladesAlternateActorSheet extends BladesSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["blades-alt", "sheet", "pc", "actor"],
-      template: "modules/bitd-alternate-sheets/templates/actor-sheet.html",
+      template: "modules/bitd-alternate-sheets-deepcuts-edition/templates/actor-sheet.html",
       width: 800,
       height: 1200,
       tabs: [
@@ -169,14 +169,12 @@ export class BladesAlternateActorSheet extends BladesSheet {
         let description = item.system.description.replace(/"/g, "&quot;");
         items_html += `
             <div class="item-block">
-              <input type="checkbox" id="character-${
-                this.actor.id
-              }-${item_type}add-${item.id}" data-${item_type}-id="${item.id}" >
-              <label for="character-${this.actor.id}-${item_type}add-${
-          item.id
-        }" title="${strip(
-          description
-        )}" class="hover-term">${trimmedname}</label>
+              <input type="checkbox" id="character-${this.actor.id
+          }-${item_type}add-${item.id}" data-${item_type}-id="${item.id}" >
+              <label for="character-${this.actor.id}-${item_type}add-${item.id
+          }" title="${strip(
+            description
+          )}" class="hover-term">${trimmedname}</label>
             </div>
           `;
       }
@@ -215,13 +213,13 @@ export class BladesAlternateActorSheet extends BladesSheet {
           cancel: {
             icon: "<i class='fas fa-times'></i>",
             label: game.i18n.localize("bitd-alt.Cancel"),
-            callback: () => {},
+            callback: () => { },
           },
         },
         render: (html) => {
           this.addTermTooltips(html);
         },
-        close: (html) => {},
+        close: (html) => { },
       },
       { classes: ["add-existing-dialog"], width: "650" }
     );
@@ -362,7 +360,7 @@ export class BladesAlternateActorSheet extends BladesSheet {
     sheetData.editable = this.options.editable;
     sheetData.isGM = game.user.isGM;
     sheetData.showAliasInDirectory = this.actor.getFlag(
-      "bitd-alternate-sheets",
+      "bitd-alternate-sheets-deepcuts-edition",
       "showAliasInDirectory"
     );
     const actorData = sheetData.data;
@@ -378,7 +376,7 @@ export class BladesAlternateActorSheet extends BladesSheet {
       sheetData.system.acquaintances_label == "BITD.Acquaintances"
         ? "bitd-alt.Acquaintances"
         : sheetData.system.acquaintances_label;
-    let rawNotes = this.actor.getFlag("bitd-alternate-sheets", "notes");
+    let rawNotes = this.actor.getFlag("bitd-alternate-sheets-deepcuts-edition", "notes");
     if (rawNotes) {
       let pattern = /(@UUID\[([^]*?)]){[^}]*?}/gm;
       let linkedEntities = [...rawNotes.matchAll(pattern)];
@@ -427,21 +425,21 @@ export class BladesAlternateActorSheet extends BladesSheet {
       sheetData.system.heritage != "" && sheetData.system.heritage != "Heritage"
         ? sheetData.system.heritage
         : Utils.getOwnedObjectByType(this.actor, "heritage")
-        ? Utils.getOwnedObjectByType(this.actor, "heritage").name
-        : "";
+          ? Utils.getOwnedObjectByType(this.actor, "heritage").name
+          : "";
     sheetData.background =
       sheetData.system.background != "" &&
-      sheetData.system.background != "Background"
+        sheetData.system.background != "Background"
         ? sheetData.system.background
         : Utils.getOwnedObjectByType(this.actor, "background")
-        ? Utils.getOwnedObjectByType(this.actor, "background").name
-        : "";
+          ? Utils.getOwnedObjectByType(this.actor, "background").name
+          : "";
     sheetData.vice =
       sheetData.system.vice != "" && sheetData.system.vice != "Vice"
         ? sheetData.system.vice
         : Utils.getOwnedObjectByType(this.actor, "vice")
-        ? Utils.getOwnedObjectByType(this.actor, "vice").name
-        : "";
+          ? Utils.getOwnedObjectByType(this.actor, "vice").name
+          : "";
 
     sheetData.load_levels = {
       "BITD.Light": "BITD.Light",
@@ -548,7 +546,7 @@ export class BladesAlternateActorSheet extends BladesSheet {
     // Calculate Load
     let loadout = 0;
     let equipped = await this.actor.getFlag(
-      "bitd-alternate-sheets",
+      "bitd-alternate-sheets-deepcuts-edition",
       "equipped-items"
     );
     if (equipped) {
@@ -569,7 +567,7 @@ export class BladesAlternateActorSheet extends BladesSheet {
 
     switch (sheetData.system.selected_load_level) {
       case "BITD.Light":
-        sheetData.max_load = sheetData.system.base_max_load + 3;
+        sheetData.max_load = sheetData.system.base_max_load + 4;
         break;
       case "BITD.Normal":
         sheetData.max_load = sheetData.system.base_max_load + 5;
@@ -586,7 +584,7 @@ export class BladesAlternateActorSheet extends BladesSheet {
   }
 
   async clearLoad() {
-    await this.actor.setFlag("bitd-alternate-sheets", "equipped-items", "");
+    await this.actor.setFlag("bitd-alternate-sheets-deepcuts-edition", "equipped-items", "");
   }
 
   addTermTooltips(html) {
@@ -675,10 +673,9 @@ export class BladesAlternateActorSheet extends BladesSheet {
           <p>Changes have been made to this character that would be overwritten by a playbook switch. Please select how you'd like to handle this data and click "Ok", or click "Cancel" to cancel this change.</p>
           <p>Note that this process only uses the Item, Ability, Playbook, and NPC compendia to decide what is "default". If you have created entities outside the relevant compendia and added them to your character, those items will be considered "custom" and removed unless you choose to save.</p>
           <h2>Changes to keep</h2>
-          <div ${
-            modifications.newAbilities || modifications.ownedAbilities
-              ? ""
-              : "hidden"
+          <div ${modifications.newAbilities || modifications.ownedAbilities
+            ? ""
+            : "hidden"
           }>
             <label>Abilities to keep</label>
             ${selectTemplate(abilitiesToKeepOptions)}
@@ -691,10 +688,9 @@ export class BladesAlternateActorSheet extends BladesSheet {
             <label>Skill Points</label>
             ${selectTemplate(keepSkillPointsOptions)}
           </div>
-          <div ${
-            modifications.acquaintanceList || modifications.relationships
-              ? ""
-              : "hidden"
+          <div ${modifications.acquaintanceList || modifications.relationships
+            ? ""
+            : "hidden"
           }>
             <label>Acquaintances</label>
             ${selectTemplate(acquaintancesToKeepOptions)}
@@ -873,9 +869,9 @@ export class BladesAlternateActorSheet extends BladesSheet {
     html.find(".toggle-alias-display").click(async (event) => {
       event.preventDefault();
       this.actor.setFlag(
-        "bitd-alternate-sheets",
+        "bitd-alternate-sheets-deepcuts-edition",
         "showAliasInDirectory",
-        !this.actor.getFlag("bitd-alternate-sheets", "showAliasInDirectory")
+        !this.actor.getFlag("bitd-alternate-sheets-deepcuts-edition", "showAliasInDirectory")
       );
     });
 
@@ -1049,8 +1045,8 @@ export class BladesAlternateActorSheet extends BladesSheet {
             label: "Cancel",
           },
         },
-        render: (html) => {},
-        close: (html) => {},
+        render: (html) => { },
+        close: (html) => { },
       });
       d.render(true);
     });

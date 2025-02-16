@@ -1,10 +1,9 @@
 {
-  "name": "bitd-alternate-sheets",
-  "title": "Blades in the Dark Alternate Sheets",
+  "id": "bitd-alternate-sheets-deepcuts-edition",
+  "title": "Blades in the Dark Alternate Sheets Deepcuts Edition",
   "description": "",
   "version": "0.0.1",
   "library": "false",
-  "manifestPlusVersion": "1.2.0",
   "minimumCoreVersion": "12",
   "compatibility": {
     "minimum": 12,
@@ -12,28 +11,42 @@
   },
   "authors": [
     {
-      "name": "Justin Ross",
-      "url": "https://github.com/justinross",
-      "discord": "thsjstin#5654"
+      "name": "Declan Rhodes",
+      "url": "https://github.com/RussianHamster6"
     }
   ],
   "dependencies": [
     {
-      "name": "blades-in-the-dark",
+      "id": "blades-in-the-dark",
       "manifest": "https://raw.githubusercontent.com/Dez384/foundryvtt-blades-in-the-dark/master/system.json",
       "type": "system"
     }
   ],
-  "conflicts": [],
   "flags": {
     "hotReload": {
-      "extensions": ["hbs", "css", "html"],
-      "paths": ["templates", "templates/parts", "langs", "styles", "images"]
+      "extensions": [
+        "hbs",
+        "css",
+        "html"
+      ],
+      "paths": [
+        "templates",
+        "templates/parts",
+        "langs",
+        "styles",
+        "images"
+      ]
     }
   },
-  "esmodules": ["/scripts/module.js"],
-  "scripts": ["scripts/lib/markdown-it.min.js"],
-  "styles": ["/styles/css/bitd-alt.css"],
+  "esmodules": [
+    "/scripts/module.js"
+  ],
+  "scripts": [
+    "scripts/lib/markdown-it.min.js"
+  ],
+  "styles": [
+    "/styles/css/bitd-alt.css"
+  ],
   "languages": [
     {
       "lang": "en",
@@ -51,9 +64,9 @@
       "path": "languages/it.json"
     }
   ],
-  "url": "This is auto replaced",
-  "manifest": "This is auto replaced",
-  "download": "This is auto replaced",
+  "url": "https://github.com/RussianHamster6/foundry-bitd-alternate-sheets/releases/tag/1.0.1",
+  "manifest": "https://github.com/RussianHamster6/foundry-bitd-alternate-sheets/releases/download/1.0.1/module.json",
+  "download": "https://github.com/RussianHamster6/foundry-bitd-alternate-sheets/releases/download/1.0.1/module.zip",
   "media": [
     {
       "type": "icon",
