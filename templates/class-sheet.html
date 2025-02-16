@@ -1,23 +1,24 @@
 <form class="{{cssClass}}" autocomplete="off">
-    {{> "modules/bitd-alternate-sheets/templates/parts/item-header.html"}}
+    {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/item-header.html"}}
     <section class="flex-vertical">
         <section>
-        <h3>{{localize "bitd-alt.StartingSkills"}}</h3>
-        {{> "modules/bitd-alternate-sheets/templates/parts/attributes.html" owner=this.item isitem=true attributes=attributes}}
+            <h3>{{localize "bitd-alt.StartingSkills"}}</h3>
+            {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/attributes.html" owner=this.item
+            isitem=true attributes=attributes}}
         </section>
         <section>
-        <header><label>{{localize "BITD.Description"}}</label></header>
-        <input type="text" class="item_field" name="system.description" value="{{system.description}}" />
-        <!-- {{editor system.description target="system.description" button=true editable=editable engine="prosemirror"}} -->
+            <header><label>{{localize "BITD.Description"}}</label></header>
+            <input type="text" class="item_field" name="system.description" value="{{system.description}}" />
+            <!-- {{editor system.description target="system.description" button=true editable=editable engine="prosemirror"}} -->
         </section>
         <section>
-        <header><label>{{localize "BITD.ExpClues"}}</label></header>
-        <input type="text" class="item_field" name="system.experience_clues" value="{{system.experience_clues}}" />
+            <header><label>{{localize "BITD.ExpClues"}}</label></header>
+            <input type="text" class="item_field" name="system.experience_clues" value="{{system.experience_clues}}" />
         </section>
         <!-- {{editor system.experience_clues target="system.experience_clues" button=true editable=editable engine="prosemirror"}} -->
 
-    {{#if isGM}}
-        {{> "modules/bitd-alternate-sheets/templates/parts/active-effects.html"}}</div>
-    {{/if}}
+        {{#if isGM}}
+        {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/active-effects.html"}}</div>
+        {{/if}}
     </section>
 </form>

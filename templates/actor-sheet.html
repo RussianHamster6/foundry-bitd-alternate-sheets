@@ -17,21 +17,24 @@
               <div class="placeholder"></div><span
                 class="coin-values label-text">{{system.coins}}/{{system.coins_stashed}}</span>
             </div>
-            <div class="full-view">{{> "modules/bitd-alternate-sheets/templates/parts/coins.html" actor=actor}}</div>
+            <div class="full-view">{{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/coins.html"
+              actor=actor}}</div>
           </div>
           <div class="load-box {{#if load_open}}open{{/if}} pointer">
             <div class="mini-view">
               <div class="placeholder"></div><span
                 class="load-amounts label-text {{#if (lt loadout max_load)}}below-max{{else if (eq loadout max_load)}}at-max{{else if (gt loadout max_load)}}over-max{{/if}}">{{loadout}}/{{max_load}}</span>
             </div>
-            <div class="full-view">{{> "modules/bitd-alternate-sheets/templates/parts/load.html"}}</div>
+            <div class="full-view">{{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/load.html"}}
+            </div>
           </div>
           <div class="harm-box {{#if harm_open}}open{{/if}} pointer">
             <div class="mini-view harm{{#if (or system.harm.light.one system.harm.light.two)}}-1{{/if}}{{#if
               (or system.harm.medium.one system.harm.medium.two)}}-2{{/if}}{{#if system.harm.heavy.one}}-3{{/if}}">
               <div class="placeholder"></div>
             </div>
-            <div class="full-view">{{> "modules/bitd-alternate-sheets/templates/parts/harm.html" actor=actor}}</div>
+            <div class="full-view">{{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/harm.html"
+              actor=actor}}</div>
           </div>
 
         </div>
@@ -67,42 +70,42 @@
           </div>
         </div>
       </section>
+
+      <section class="flex-horizontal experience">
+        {{#if (getSetting 'ClockXP')}}
+        <p class="black-label" style="width: 40px; padding-top: 3px"> {{localize "BITD.XP"}}</p>
+        <div class="flex-vertical" style="font-size: 18px">
+          <a class="up-exp-clock" data-tooltip="{{localize 'BITD.AddXP'}}"><i class="fas fa-caret-up"></i></a>
+          <a class="down-exp-clock" data-tooltip="{{localize 'BITD.MinusXP'}}"><i class="fas fa-caret-down"></i></a>
+        </div>
+        <!-- 
+        <img src="systems/blades-in-the-dark/themes/{{system.exp_clock.color}}/{{system.exp_clock.size}}clock_{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
+          -->
+        <img
+          src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock {{system.exp_clock.size}}-{{system.exp_clock.value}}.svg"
+          height="45" width="45" style="border-style: none" />
+        {{#if (gteq system.exp_clock.number 1)}}
+        <div class="flex-vertical" style="font-size: 16px">
+          <a class="add-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}" style="visibility:hidden"><i
+              class="fas fa-angles-up"></i></a>
+          <a class="minus-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}"><i
+              class="fas fa-angles-down"></i></a>
+        </div>
+        {{#if (lteq system.exp_clock.number 10)}}
+        {{#times_from 1 system.exp_clock.number}}
+        <img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45"
+          width="45" style="border-style: none" />
+        {{/times_from}}
+        {{else}}
+        <img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45"
+          width="45" style="border-style: none" />
+        <p style="font-family: Kirsty, serif; font-size: 24px">x {{system.exp_clock.number}}</p>
+        {{/if}}
+        {{/if}}
+        {{/if}}
+      </section>
+
       <section class="character-info col">
-
-        <section class="flex-horizontal experience">
-          {{#if (getSetting 'ClockXP')}}
-          <p class="black-label" style="width: 40px; padding-top: 3px"> {{localize "BITD.XP"}}</p>
-          <div class="flex-vertical" style="font-size: 18px">
-            <a class="up-exp-clock" data-tooltip="{{localize 'BITD.AddXP'}}"><i class="fas fa-caret-up"></i></a>
-            <a class="down-exp-clock" data-tooltip="{{localize 'BITD.MinusXP'}}"><i class="fas fa-caret-down"></i></a>
-          </div>
-          <!-- 
-          <img src="systems/blades-in-the-dark/themes/{{system.exp_clock.color}}/{{system.exp_clock.size}}clock_{{system.exp_clock.value}}.svg" height="45" width="45" style="border-style: none"/>
-            -->
-          <img
-            src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock {{system.exp_clock.size}}-{{system.exp_clock.value}}.svg"
-            height="45" width="45" style="border-style: none" />
-          {{#if (gteq system.exp_clock.number 1)}}
-          <div class="flex-vertical" style="font-size: 16px">
-            <a class="add-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}" style="visibility:hidden"><i
-                class="fas fa-angles-up"></i></a>
-            <a class="minus-exp-clock" data-tooltip="{{localize 'BITD.MinusXPClock'}}"><i
-                class="fas fa-angles-down"></i></a>
-          </div>
-          {{#if (lteq system.exp_clock.number 10)}}
-          {{#times_from 1 system.exp_clock.number}}
-          <img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45"
-            width="45" style="border-style: none" />
-          {{/times_from}}
-          {{else}}
-          <img src="systems/blades-in-the-dark/styles/assets/progressclocks-svg/Progress Clock 6-6.svg" height="45"
-            width="45" style="border-style: none" />
-          <p style="font-family: Kirsty, serif; font-size: 24px">x {{system.exp_clock.number}}</p>
-          {{/if}}
-          {{/if}}
-          {{/if}}
-        </section>
-
         <div class="name-alias bio">
           <span class="name">{{{inline-editable-text allow_edit "name" (localize "BITD.Name") actor.name actor._id
             this}}}</span> <span class="alias">&bull; "{{{inline-editable-text allow_edit "system.alias" (localize
@@ -127,7 +130,7 @@
             class="v10-tooltip">{{clean-name this.name}}</span>&nbsp;{{#unless @last}}-&nbsp;{{/unless}}{{/each}}
         </div>
 
-        {{> "modules/bitd-alternate-sheets/templates/parts/attributes.html" owner=this.actor}}
+        {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/attributes.html" owner=this.actor}}
       </section>
     </section>
     <section class="tab-space">
@@ -179,7 +182,8 @@
               <section class="ability-list check-list">
                 {{#each available_playbook_abilities as |ability index|}}
                 {{#with ../actor as |actor|}}
-                {{> "modules/bitd-alternate-sheets/templates/parts/ability.html" actor=actor ability=ability
+                {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/ability.html" actor=actor
+                ability=ability
                 allow_edit=../../allow_edit}}
                 {{/with}}
                 {{/each}}
@@ -191,7 +195,7 @@
                     class="fas fa-plus"></i></a>{{/if}}</header>
               {{#each my_items as |item index|}}
               {{#with ../actor as |actor|}}
-              {{> "modules/bitd-alternate-sheets/templates/parts/item.html" actor=actor item=item}}
+              {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/item.html" actor=actor item=item}}
               {{/with}}
               {{/each}}
             </section>
@@ -213,7 +217,7 @@
               <header class="full-bar">&nbsp;</header>
               {{#each generic_items as |item index|}}
               {{#with ../actor as |actor|}}
-              {{> "modules/bitd-alternate-sheets/templates/parts/item.html" actor=actor item=item}}
+              {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/item.html" actor=actor item=item}}
               {{/with}}
               {{/each}}
             </section>
@@ -383,7 +387,7 @@
   {{#if isGM}}
   <i class="fas fa-bug debug-toggle {{#if show_debug}}on{{/if}} "></i>
   {{#if show_debug}}
-  {{> "modules/bitd-alternate-sheets/templates/parts/active-effects.html"}}</div>
+  {{> "modules/bitd-alternate-sheets-deepcuts-edition/templates/parts/active-effects.html"}}</div>
   <hr />
   <h3>All Items</h3>
   {{#each actor.items as |item id|}}
