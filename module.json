@@ -1,5 +1,5 @@
 {
-  "name": "bitd-alternate-sheets",
+  "id": "bitd-alternate-sheets-deepcuts-edition",
   "title": "Blades in the Dark Alternate Sheets Deepcuts Edition",
   "description": "",
   "version": "0.0.1",
@@ -18,7 +18,7 @@
   ],
   "dependencies": [
     {
-      "name": "blades-in-the-dark",
+      "id": "blades-in-the-dark",
       "manifest": "https://raw.githubusercontent.com/Dez384/foundryvtt-blades-in-the-dark/master/system.json",
       "type": "system"
     }
